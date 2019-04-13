@@ -42,9 +42,14 @@ namespace beerbingo.ViewModels
                     { 
                         continue;  
                     }
+
                     places.Add(beerItems[i].venue.venue_name);
                     beers.Add(beerItems[i].beer.beer_name);
-                    ItemOLD itemOld = new ItemOLD { Id = Guid.NewGuid().ToString(), Text = beerItems[i].beer.beer_name, Description = beerItems[i].venue.venue_name };
+                    string beer = beerItems[i].beer.beer_name;
+                    string venue = beerItems[i].venue.venue_name;
+                    double lng = beerItems[i].venue.location.lng;
+                    double lat = beerItems[i].venue.location.lat;
+                    ItemOLD itemOld = new ItemOLD { Id = Guid.NewGuid().ToString(), Text = beer, Description = beerItems[i].venue.venue_name, Lat = lat, Lng = lng};
                     Items.Add(itemOld);
                     await DataStore.AddItemAsync(itemOld);
                     if(Items.Count >= 4) 
