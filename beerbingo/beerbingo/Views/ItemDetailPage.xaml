@@ -6,5 +6,6 @@
         <Label Text="Place to go:" FontSize="Small" />
         <Label Text="{Binding Item.Description}" FontSize="Medium" />
         <Button Text="Find this BEER!" BorderWidth="0" Clicked="OnButtonClicked" />
+        <Button Text="Nam Nam... Done!" BackgroundColor="Green" BorderWidth="0" Clicked="OnButtonClicked" />
     </StackLayout>
 </ContentPage>

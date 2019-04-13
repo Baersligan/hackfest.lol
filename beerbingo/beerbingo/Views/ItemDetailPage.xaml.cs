@@ -36,11 +36,8 @@ namespace beerbingo.Views
        
        void OnButtonClicked(object sender, EventArgs args)
         {
-            Debug.Print("tjaaaaaaba"+ viewModel.Item.Lat);
-
             //Device.OpenUri(new Uri("https://www.google.com/maps/search/?api=1&query="+ viewModel.Item.Lat+", "+ viewModel.Item.Lng));
             Device.OpenUri(new Uri("https://maps.google.com/?q=" + viewModel.Item.Venue_address));
-
         }
     }
 }

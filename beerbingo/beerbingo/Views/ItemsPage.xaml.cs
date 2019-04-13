@@ -29,7 +29,6 @@ namespace beerbingo.Views
             var item = args.SelectedItem as ItemOLD;
             if (item == null)
                 return;
-
             await Navigation.PushAsync(new ItemDetailPage(new ItemDetailViewModel(item)));
 
             // Manually deselect item.
