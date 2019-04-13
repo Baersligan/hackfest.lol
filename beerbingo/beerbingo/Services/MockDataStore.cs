@@ -4,10 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using beerbingo.Models;
-using Untappd.NetStandard.Authentication;
-using Untappd.NetStandard.Request;
-using Untappd.NetStandard.Responses.BeerSearch;
-using Untappd.NetStandard.Responses.UserDistinctBeer;
+
 
 namespace beerbingo.Services
 {
@@ -38,17 +35,7 @@ namespace beerbingo.Services
             var api = new RESTService();
 
             Task<bool> result = api.apiTest();
-            UnAuthenticatedUntappdCredentials login = new UnAuthenticatedUntappdCredentials(ClientID, ClientSecret);
-            IDictionary<string, object> dict = new Dictionary<string, object>();
-            dict.Add("lat", 59.304698);
-            dict.Add("lng",18.078462);
-            dict.Add("limit", 1);
-
-           // var res = new Repository().Get<UserDistinctBeers>(login, "https://api.untappd.com/v4/thepub/local", dict);
-            var res = new Repository().Get<BeerSearch>(login, "https://api.untappd.com/v4/thepub/local", dict);
-            Debug.WriteLine("HEJ");
-           Debug.WriteLine(res.Response);
-
+           
 
             //var res2 = new Repository().Get<>
 

@@ -27,8 +27,11 @@ namespace beerbingo.Services
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
-                //Items = JsonConvert.DeserializeObject<List<TodoItem>>(content);
-                Debug.WriteLine(content);
+
+                var result = JsonConvert.DeserializeObject<RootObject>(content);
+
+                Debug.WriteLine(result.response.checkins.items[0].beer.beer_name);
+                
             }
 
             return true;
