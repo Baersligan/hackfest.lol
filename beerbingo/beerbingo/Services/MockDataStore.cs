@@ -34,7 +34,7 @@ namespace beerbingo.Services
 
 
             RESTService.Done += GotResult;
-            Task<Item> result = RESTService.apiTest();
+            Task<RootObject> result = RESTService.apiTest();
 
 
            // Item beerItem = await result;
@@ -42,9 +42,9 @@ namespace beerbingo.Services
 
         }
 
-        private static void GotResult(Item beerItem) 
+        private static void GotResult(RootObject untappdResult) 
         {
-            Debug.WriteLine(beerItem.beer.beer_style);
+            Debug.WriteLine(untappdResult.response.checkins.items[0].beer.beer_name);
         }
 
         public async Task<bool> AddItemAsync(ItemOLD item)

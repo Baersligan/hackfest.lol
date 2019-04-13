@@ -10,7 +10,7 @@ namespace beerbingo.Services
     public static class RESTService
     { 
         static HttpClient _client;
-        public static Action<Item> Done;
+        public static Action<RootObject> Done;
 
         static RESTService()
         {
@@ -18,7 +18,7 @@ namespace beerbingo.Services
         }
 
 
-        public static async Task<Item> apiTest()
+        public static async Task<RootObject> apiTest()
         {
             var APIstring = "https://api.untappd.com/v4/thepub/local?radius=1&dist_pref=km&limit=1&lat=59.304698&lng=18.078462&client_id=7CEE7753106952507C5DD070FE9DFFD1A726EF5A&client_secret=869F205117B831556ED3994CB3FD765F59D4968C";
             var uri = new Uri(string.Format(APIstring, string.Empty));
@@ -31,17 +31,14 @@ namespace beerbingo.Services
 
                 var result = JsonConvert.DeserializeObject<RootObject>(content);
 
-                item = result.response.checkins.items[0];
-                Debug.WriteLine(result.response.checkins.items[0].beer.beer_name);
-
                 if (Done != null) 
                 {
-                    Done(item);
+                    Done(result);
 
                 }
 
             }
-            return item;
+            return null;
         }
 
     }
