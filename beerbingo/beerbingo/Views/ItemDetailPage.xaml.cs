@@ -23,7 +23,7 @@ namespace beerbingo.Views
         {
             InitializeComponent();
 
-            var item = new Item
+            var item = new ItemOLD
             {
                 Text = "Item 1",
                 Description = "This is an item description."

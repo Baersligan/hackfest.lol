@@ -2,7 +2,7 @@
 
 namespace beerbingo.Models
 {
-    public class Item
+    public class ItemOLD
     {
         public string Id { get; set; }
         public string Text { get; set; }

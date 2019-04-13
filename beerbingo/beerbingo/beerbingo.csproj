@@ -13,5 +13,12 @@
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="3.6.0.264807" />  
     <PackageReference Include="Xamarin.Essentials" Version="1.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+    <PackageReference Include="RestSharp" Version="106.6.9" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Untappd.NetStandard">
+      <HintPath>..\..\..\..\..\..\Downloads\bin\Debug\netstandard2.0\Untappd.NetStandard.dll</HintPath>
+    </Reference>
   </ItemGroup>
 </Project>

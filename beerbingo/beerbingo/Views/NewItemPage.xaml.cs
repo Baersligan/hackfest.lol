@@ -10,13 +10,13 @@ namespace beerbingo.Views
 {
     public partial class NewItemPage : ContentPage
     {
-        public Item Item { get; set; }
+        public ItemOLD Item { get; set; }
 
         public NewItemPage()
         {
             InitializeComponent();
 
-            Item = new Item
+            Item = new ItemOLD
             {
                 Text = "Item name",
                 Description = "This is an item description."

@@ -12,7 +12,7 @@ namespace beerbingo.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>() ?? new MockDataStore();
+        public IDataStore<ItemOLD> DataStore => DependencyService.Get<IDataStore<ItemOLD>>() ?? new MockDataStore();
 
         bool isBusy = false;
         public bool IsBusy

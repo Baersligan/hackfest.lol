@@ -6,8 +6,8 @@ namespace beerbingo.ViewModels
 {
     public class ItemDetailViewModel : BaseViewModel
     {
-        public Item Item { get; set; }
-        public ItemDetailViewModel(Item item = null)
+        public ItemOLD Item { get; set; }
+        public ItemDetailViewModel(ItemOLD item = null)
         {
             Title = item?.Text;
             Item = item;
