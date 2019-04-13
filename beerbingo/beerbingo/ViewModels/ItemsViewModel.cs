@@ -53,7 +53,7 @@ namespace beerbingo.ViewModels
                     ItemOLD itemOld = new ItemOLD { Id = Guid.NewGuid().ToString(), Text = beer, Description = beerItems[i].venue.venue_name, Lat = lat, Lng = lng, Venue_address = venue_address};
                     Items.Add(itemOld);
                     await DataStore.AddItemAsync(itemOld);
-                    if(Items.Count >= 4) 
+                    if(Items.Count >= 6) 
                     {
                         return;
                     }
