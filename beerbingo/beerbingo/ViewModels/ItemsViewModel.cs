@@ -38,7 +38,7 @@ namespace beerbingo.ViewModels
                 List<string> beers = new List<string>();
                 for (var i = 0; i < beerItems.Count; i++) 
                 {
-                    if (beers.Contains(beerItems[i].beer.beer_name) || places.Contains(beerItems[i].venue.venue_name)) 
+                    if (beers.Contains(beerItems[i].beer.beer_name) || places.Contains(beerItems[i].venue.venue_name) || beerItems[i].venue.location.venue_address == "") 
                     { 
                         continue;  
                     }
