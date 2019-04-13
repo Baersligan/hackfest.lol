@@ -20,7 +20,7 @@ namespace beerbingo.Services
 
         public static async Task<RootObject> apiTest()
         {
-            var APIstring = "https://api.untappd.com/v4/thepub/local?radius=1&dist_pref=km&limit=10&lat=59.304698&lng=18.078462&client_id=7CEE7753106952507C5DD070FE9DFFD1A726EF5A&client_secret=869F205117B831556ED3994CB3FD765F59D4968C";
+            var APIstring = "https://api.untappd.com/v4/thepub/local?radius=1&dist_pref=km&lat=59.304698&lng=18.078462&client_id=7CEE7753106952507C5DD070FE9DFFD1A726EF5A&client_secret=869F205117B831556ED3994CB3FD765F59D4968C";
             var uri = new Uri(string.Format(APIstring, string.Empty));
         
             var response = await _client.GetAsync(uri);

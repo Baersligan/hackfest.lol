@@ -20,5 +20,8 @@
     <Reference Include="Untappd.NetStandard">
       <HintPath>..\..\..\..\..\..\Downloads\bin\Debug\netstandard2.0\Untappd.NetStandard.dll</HintPath>
     </Reference>
+    <Reference Include="Mono.Android">
+      <HintPath>..\..\..\..\..\..\Library\Frameworks\Xamarin.Android.framework\Versions\9.2.0-5\lib\xamarin.android\xbuild-frameworks\MonoAndroid\v8.1\Mono.Android.dll</HintPath>
+    </Reference>
   </ItemGroup>
 </Project>

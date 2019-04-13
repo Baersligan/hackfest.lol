@@ -38,6 +38,10 @@ namespace beerbingo.Views
 
         async void AddItem_Clicked(object sender, EventArgs e)
         {
+         
+                //MessagingCenter.Send(this, "AddItem", Item);
+                //await Navigation.PopModalAsync();
+            
             await Navigation.PushModalAsync(new NavigationPage(new NewItemPage()));
         }
 

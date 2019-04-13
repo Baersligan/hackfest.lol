@@ -9,6 +9,7 @@ using beerbingo.Models;
 using beerbingo.Views;
 using beerbingo.Services;
 using System.Collections.Generic;
+using Android.Content.Res;
 
 namespace beerbingo.ViewModels
 {
@@ -19,7 +20,7 @@ namespace beerbingo.ViewModels
 
         public ItemsViewModel()
         {
-            Title = "Browse";
+            Title = "Beer Bingo";
             Items = new ObservableCollection<ItemOLD>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
@@ -33,12 +34,23 @@ namespace beerbingo.ViewModels
             MessagingCenter.Subscribe<NewItemPage, ItemOLD>(this, "AddItem", async (obj, item) =>
             {
                 List<Item> beerItems = untappdResult.response.checkins.items;
-                Debug.WriteLine(untappdResult.response.checkins.count);
-                for(var i = 0; i < 4; i++) 
+                List<string> places = new List<string>();
+                List<string> beers = new List<string>();
+                for (var i = 0; i < beerItems.Count; i++) 
                 {
-                    ItemOLD itemOld = new ItemOLD { Id = Guid.NewGuid().ToString(), Text = beerItems[i].beer.beer_name, Description = beerItems[i].beer.beer_style };
+                    if (beers.Contains(beerItems[i].beer.beer_name) || places.Contains(beerItems[i].venue.venue_name)) 
+                    { 
+                        continue;  
+                    }
+                    places.Add(beerItems[i].venue.venue_name);
+                    beers.Add(beerItems[i].beer.beer_name);
+                    ItemOLD itemOld = new ItemOLD { Id = Guid.NewGuid().ToString(), Text = beerItems[i].beer.beer_name, Description = beerItems[i].venue.venue_name };
                     Items.Add(itemOld);
                     await DataStore.AddItemAsync(itemOld);
+                    if(Items.Count >= 4) 
+                    {
+                        return;
+                    }
                 }
             });
 
