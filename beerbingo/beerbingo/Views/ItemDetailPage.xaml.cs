@@ -5,6 +5,7 @@ using Xamarin.Forms.Xaml;
 
 using beerbingo.Models;
 using beerbingo.ViewModels;
+using System.Diagnostics;
 
 namespace beerbingo.Views
 {
@@ -31,6 +32,12 @@ namespace beerbingo.Views
 
             viewModel = new ItemDetailViewModel(item);
             BindingContext = viewModel;
+        }
+        void OnButtonClicked(object sender, EventArgs args)
+        {
+            Debug.Print("tjaaaaaaba");
+
+            Device.OpenUri(new Uri("http://google.com"));
         }
     }
 }

@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Diagnostics;
 using beerbingo.Models;
 
 namespace beerbingo.ViewModels
