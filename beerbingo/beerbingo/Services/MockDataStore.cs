@@ -4,7 +4,8 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using beerbingo.Models;
-
+using beerbingo.Views;
+using Xamarin.Forms;
 
 namespace beerbingo.Services
 {
@@ -17,34 +18,9 @@ namespace beerbingo.Services
         public MockDataStore()
         {
             items = new List<ItemOLD>();
-            var mockItems = new List<ItemOLD>
-            {
-                new ItemOLD { Id = Guid.NewGuid().ToString(), Text = "First item", Description="This is an item description." },
-                new ItemOLD { Id = Guid.NewGuid().ToString(), Text = "Second item", Description="This is an item description." },
-                new ItemOLD { Id = Guid.NewGuid().ToString(), Text = "Third item", Description="This is an item description." },
-                new ItemOLD { Id = Guid.NewGuid().ToString(), Text = "Fourth item", Description="This is an item description." },
-                new ItemOLD { Id = Guid.NewGuid().ToString(), Text = "Fifth item", Description="This is an item description." },
-                new ItemOLD { Id = Guid.NewGuid().ToString(), Text = "Sixth item", Description="This is an item description." }
-            };
 
-            foreach (var item in mockItems)
-            {
-                items.Add(item);
-            }
+            RESTService.apiTest();
 
-
-            RESTService.Done += GotResult;
-            Task<RootObject> result = RESTService.apiTest();
-
-
-           // Item beerItem = await result;
-            //var res2 = new Repository().Get<>
-
-        }
-
-        private static void GotResult(RootObject untappdResult) 
-        {
-            Debug.WriteLine(untappdResult.response.checkins.items[0].beer.beer_name);
         }
 
         public async Task<bool> AddItemAsync(ItemOLD item)

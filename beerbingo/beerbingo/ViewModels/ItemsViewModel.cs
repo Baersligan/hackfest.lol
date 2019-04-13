@@ -7,6 +7,8 @@ using Xamarin.Forms;
 
 using beerbingo.Models;
 using beerbingo.Views;
+using beerbingo.Services;
+using System.Collections.Generic;
 
 namespace beerbingo.ViewModels
 {
@@ -21,12 +23,25 @@ namespace beerbingo.ViewModels
             Items = new ObservableCollection<ItemOLD>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
+            RESTService.Done += GotResult;
+        }
+
+        private void GotResult(RootObject untappdResult)
+        {
+            LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
+
             MessagingCenter.Subscribe<NewItemPage, ItemOLD>(this, "AddItem", async (obj, item) =>
             {
-                var newItem = item as ItemOLD;
-                Items.Add(newItem);
-                await DataStore.AddItemAsync(newItem);
+                List<Item> beerItems = untappdResult.response.checkins.items;
+                Debug.WriteLine(untappdResult.response.checkins.count);
+                for(var i = 0; i < 4; i++) 
+                {
+                    ItemOLD itemOld = new ItemOLD { Id = Guid.NewGuid().ToString(), Text = beerItems[i].beer.beer_name, Description = beerItems[i].beer.beer_style };
+                    Items.Add(itemOld);
+                    await DataStore.AddItemAsync(itemOld);
+                }
             });
+
         }
 
         async Task ExecuteLoadItemsCommand()

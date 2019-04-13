@@ -152,7 +152,7 @@ public class Toasts
 {
     public int total_count { get; set; }
     public int count { get; set; }
-    public bool auth_toast { get; set; }
+    public bool? auth_toast { get; set; }
     public List<object> items { get; set; }
 }
 
@@ -168,28 +168,11 @@ public class Source
     public string app_website { get; set; }
 }
 
-public class BadgeImage
-{
-    public string sm { get; set; }
-    public string md { get; set; }
-    public string lg { get; set; }
-}
-
-public class Item3
-{
-    public int badge_id { get; set; }
-    public int user_badge_id { get; set; }
-    public string badge_name { get; set; }
-    public string badge_description { get; set; }
-    public string created_at { get; set; }
-    public BadgeImage badge_image { get; set; }
-}
-
 public class Badges
 {
     public bool retro_status { get; set; }
     public int count { get; set; }
-    public List<Item3> items { get; set; }
+    public List<object> items { get; set; }
 }
 
 public class Item
