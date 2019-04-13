@@ -32,13 +32,19 @@ namespace beerbingo.Services
                 items.Add(item);
             }
 
-            var api = new RESTService();
 
-            Task<bool> result = api.apiTest();
-           
+            RESTService.Done += GotResult;
+            Task<Item> result = RESTService.apiTest();
 
+
+           // Item beerItem = await result;
             //var res2 = new Repository().Get<>
 
+        }
+
+        private static void GotResult(Item beerItem) 
+        {
+            Debug.WriteLine(beerItem.beer.beer_style);
         }
 
         public async Task<bool> AddItemAsync(ItemOLD item)
