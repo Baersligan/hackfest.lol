@@ -9,4 +9,6 @@ namespace beerbingo.Models
         public string Description { get; set; }
         public double Lng { get; set; }
         public double Lat { get; set; }
+        public string Venue_address { get; set; }
     }
+}
